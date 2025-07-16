@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"strconv"
-	"strings"
 )
 
 const (
@@ -123,32 +122,4 @@ func (resp *resp) readBulk() (value, error) {
 	resp.ReadLine()
 
 	return val, nil
-}
-
-func Parser() {
-	input := "$5\r\nHAMZA\r\n"
-	resp := Newresp(strings.NewReader(input))
-
-	b, _ := resp.reader.ReadByte()
-
-	if b != '$' {
-		fmt.Println(string(b))
-		// Something other than bul string
-		log.Fatal("Expected bulk string starting with $")
-		return
-	}
-	b, _ = resp.reader.ReadByte()
-
-	size, err := strconv.ParseInt(string(b), 10, 64)
-
-	if err != nil {
-		log.Fatal(err)
-		return
-	}
-	resp.reader.ReadByte()
-	resp.reader.ReadByte()
-	name := make([]byte, size)
-	resp.reader.Read(name)
-	fmt.Println(string(name))
-
 }
