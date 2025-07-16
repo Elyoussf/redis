@@ -1,9 +1,9 @@
 package main
 
 import (
-	resp "redis/RESP"
+	"redis/server"
 )
 
 func main() {
-	resp.Parser()
+	server.Server()
 }

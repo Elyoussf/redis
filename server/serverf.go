@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"net"
+	resp "redis/RESP"
 )
 
 func Server() {
@@ -26,9 +27,9 @@ func Server() {
 
 	for {
 
-		buf := make([]byte, 1024)
+		resp := resp.Newresp(conn)
 
-		_, err := conn.Read(buf)
+		value, err := resp.Read()
 
 		if err != nil {
 
@@ -37,6 +38,7 @@ func Server() {
 			}
 			log.Fatal("Error occured while reading!")
 		}
+		fmt.Println(value)
 
 		conn.Write([]byte("+OK\r\n"))
 	}
