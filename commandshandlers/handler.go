@@ -126,7 +126,7 @@ func LoadHandlers() {
 	Handlers["PING"] = ping
 	Handlers["GET"] = get
 	Handlers["SET"] = set
-
+	//
 	Handlers["HSET"] = hset
 	Handlers["HGET"] = hget
 	Handlers["HGETALL"] = hgetall
