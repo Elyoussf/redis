@@ -82,15 +82,7 @@ You can use any standard Redis client (like `redis-cli`) to test and interact wi
 
 ## 📁 Folder Structure
 
-.
-├── main.go # Entry point for server
-├── server/ # TCP server setup and connection handling
-├── resp/ # RESP protocol (serialization/deserialization)
-├── commands/ # Implementation of supported commands
-├── writer/ # Response writer abstraction using bufio
-
-
----
+<pre lang="markdown"> ``` . ├── main.go # Entry point for server ├── server/ # TCP server setup and connection handling ├── resp/ # RESP protocol (serialization/deserialization) ├── commands/ # Implementation of supported commands ├── writer/ # Response writer abstraction using bufio ``` </pre>
 
 ## 🔌 RESP Protocol Overview
 
